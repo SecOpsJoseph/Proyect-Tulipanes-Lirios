@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lenguaje de las Flores</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- ══ PANTALLA DE CONTRASEÑA ══ -->
+<div id="lockScreen">
+  <div class="lock-box">
+    <div class="lock-icon">✿</div>
+    <h2 class="lock-title">Acceso Privado</h2>
+    <p class="lock-sub">Ingresa el código para continuar</p>
+    <div class="pin-dots">
+      <span class="dot" id="d1"></span>
+      <span class="dot" id="d2"></span>
+      <span class="dot" id="d3"></span>
+      <span class="dot" id="d4"></span>
+    </div>
+    <p class="lock-error" id="lockError">Código incorrecto</p>
+    <div class="keypad">
+      <button class="key" onclick="pressKey('1')">1</button>
+      <button class="key" onclick="pressKey('2')">2</button>
+      <button class="key" onclick="pressKey('3')">3</button>
+      <button class="key" onclick="pressKey('4')">4</button>
+      <button class="key" onclick="pressKey('5')">5</button>
+      <button class="key" onclick="pressKey('6')">6</button>
+      <button class="key" onclick="pressKey('7')">7</button>
+      <button class="key" onclick="pressKey('8')">8</button>
+      <button class="key" onclick="pressKey('9')">9</button>
+      <button class="key key--clear" onclick="clearPin()">✕</button>
+      <button class="key" onclick="pressKey('0')">0</button>
+      <button class="key key--enter" onclick="checkPin()">✓</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══ GALERÍA PRINCIPAL ══ -->
+<div id="app" class="hidden">
+  <header><h1>Lenguaje de las Flores</h1></header>
+  <div class="divider"></div>
+
+  <main>
+
+    <!-- LIRIO -->
+    <section class="panel panel--lily" id="lilyPanel" onclick="toggleCard(this)">
+      <div class="petals" id="lilyPetals"></div>
+      <div class="flower-wrap">
+        <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M100 195 Q95 160 100 130" stroke="#8a6a50" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M100 165 Q80 150 72 138" stroke="#9aaa72" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <path d="M100 155 Q120 145 128 132" stroke="#9aaa72" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <ellipse cx="100" cy="80" rx="14" ry="40" fill="#f5e6d0" stroke="#c8a97e" stroke-width="1.2" transform="rotate(0 100 100)"/>
+          <ellipse cx="100" cy="80" rx="14" ry="40" fill="#eedfc8" stroke="#c8a97e" stroke-width="1.2" transform="rotate(60 100 100)"/>
+          <ellipse cx="100" cy="80" rx="14" ry="40" fill="#f5e6d0" stroke="#c8a97e" stroke-width="1.2" transform="rotate(120 100 100)"/>
+          <ellipse cx="100" cy="80" rx="14" ry="40" fill="#eedfc8" stroke="#c8a97e" stroke-width="1.2" transform="rotate(180 100 100)"/>
+          <ellipse cx="100" cy="80" rx="14" ry="40" fill="#f5e6d0" stroke="#c8a97e" stroke-width="1.2" transform="rotate(240 100 100)"/>
+          <ellipse cx="100" cy="80" rx="14" ry="40" fill="#eedfc8" stroke="#c8a97e" stroke-width="1.2" transform="rotate(300 100 100)"/>
+          <line x1="100" y1="100" x2="100" y2="72" stroke="#c8a97e" stroke-width="1.5"/>
+          <line x1="100" y1="100" x2="112" y2="78" stroke="#b89068" stroke-width="1.5"/>
+          <line x1="100" y1="100" x2="88"  y2="78" stroke="#b89068" stroke-width="1.5"/>
+          <circle cx="100" cy="71" r="3" fill="#d4a060"/>
+          <circle cx="113" cy="77" r="3" fill="#d4a060"/>
+          <circle cx="87"  cy="77" r="3" fill="#d4a060"/>
+          <circle cx="100" cy="100" r="10" fill="#e8cfa8" stroke="#c8a97e" stroke-width="1"/>
+        </svg>
+      </div>
+      <h2 class="panel__name">Lirio</h2>
+      <p class="panel__hint">Toca para descubrir</p>
+      <div class="pulse"><span class="pulse-icon">✦</span></div>
+      <div class="card">
+        <p class="card__title">Pureza que ilumina</p>
+        <p class="card__fact">🌿 El lirio es símbolo milenario de pureza, renovación y elegancia. En el antiguo Egipto era ofrenda a los dioses; en Europa medieval adornaba reinas y poetas.</p>
+        <p class="card__fact">🌼 Su fragancia suave tiene el poder de transformar cualquier espacio en un refugio de calma — no invade, simplemente acompaña.</p>
+        <p class="card__quote">"Lirios: porque iluminas mis días de forma natural, sin esfuerzo, como la luz que entra por la ventana sin pedir permiso."</p>
+      </div>
+    </section>
+
+    <!-- TULIPÁN -->
+    <section class="panel panel--tulip" id="tulipPanel" onclick="toggleCard(this)">
+      <div class="petals" id="tulipPetals"></div>
+      <div class="flower-wrap">
+        <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M100 195 Q103 165 100 125" stroke="#6a9060" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M100 160 Q78 148 68 130 Q82 138 100 145" fill="#7aaa68" stroke="none"/>
+          <path d="M100 148 Q122 135 132 118 Q118 128 100 137" fill="#6a9a58" stroke="none"/>
+          <path d="M100 125 Q78 115 70 90 Q75 62 100 50 Q125 62 130 90 Q122 115 100 125Z" fill="#c05070" stroke="#a03558" stroke-width="1"/>
+          <path d="M100 125 Q82 110 80 88 Q88 60 100 52" fill="#d4607a" stroke="#b04060" stroke-width="0.8"/>
+          <path d="M100 125 Q118 110 120 88 Q112 60 100 52" fill="#c85575" stroke="#a83560" stroke-width="0.8"/>
+          <path d="M100 52 Q94 70 96 95 Q98 112 100 122" stroke="#e88090" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.6"/>
+          <path d="M100 52 Q96 38 88 30 Q92 45 100 52Z" fill="#e07890"/>
+          <path d="M100 52 Q104 38 112 30 Q108 45 100 52Z" fill="#d06880"/>
+        </svg>
+      </div>
+      <h2 class="panel__name">Tulipán</h2>
+      <p class="panel__hint">Toca para descubrir</p>
+      <div class="pulse"><span class="pulse-icon">✦</span></div>
+      <div class="card">
+        <p class="card__title">Declaración en silencio</p>
+        <p class="card__fact">🌷 El tulipán nació en las estepas de Asia Central y conquistó el mundo con su forma perfecta. En el siglo XVII llegó a valer más que una casa en Holanda — eso es tener carácter.</p>
+        <p class="card__fact">🔥 El rojo profundo del tulipán no insinúa: declara. No pide permiso. Florece con una confianza tranquila que pocas flores pueden igualar.</p>
+        <p class="card__quote">"Tulipanes: porque tienes esa rara mezcla de elegancia y pasión, como un poema que suena suave pero te cambia por dentro."</p>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script src="scripts.js"></script>
+</body>
+</html>
